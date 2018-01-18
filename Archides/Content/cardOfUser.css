@@ -1,0 +1,58 @@
+﻿.main-section {
+    margin-top:30px;
+    border: 1px solid #37d980;
+    background-color: #fff;
+    margin-left:85px;
+}
+
+.profile-header {
+    background-color: #37d980;
+    height: 150px;
+}
+
+.user-detail {
+    margin: -50px 0px 30px 0px;
+}
+
+    .user-detail img {
+        height: 120px;
+        width: 120px;
+    }
+
+    .user-detail h5 {
+        margin: 15px 0px 5px 0px;
+    }
+
+.user-social-detail {
+    padding: 15px 0px;
+    background-color: #37d980;
+}
+
+    .user-social-detail a i {
+        color: #fff;
+        font-size: 23px;
+        padding: 0px 5px;
+    }
+
+.rounded-circle {
+    border-radius: 50% !important
+}
+
+.img-thumbnailTeam {
+    padding: .25rem;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: .25rem;
+    transition: all .2s ease-in-out;
+    max-width: 100%;
+    height: auto
+}
+
+.rowTeam {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px
+}

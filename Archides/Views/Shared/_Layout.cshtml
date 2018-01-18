@@ -1,0 +1,212 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/cm-overlay.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/flexslider.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery-2.1.4.min.js"></script>
+    <script src="~/Scripts/jquery.cm-overlay.js"></script>
+    <script src="~/Scripts/jquery.flexslider.js"></script>
+    <script src="~/Scripts/jquery.mobile.custom.min.js"></script>
+    <script src="~/Scripts/jquery.tools.min.js"></script>
+    <script src="~/Scripts/jquery.validate-vsdoc.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/main.js"></script>
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script src="~/Scripts/respond.js"></script>
+    <script src="~/Scripts/respond.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+</head>
+<body>
+
+    <div class="banner">
+        <div class="w3layouts-header">
+            <div class="container">
+                <div class="w3layouts-header-left">
+                    <ul>
+                        <li><a href="#" class="w3_agile_facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#" class="agile_twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="#" class="w3_agile_dribble"><i class="fa fa-dribbble" aria-hidden="true"></i></a></li>
+                        <li><a href="#" class="w3_agile_vimeo"><i class="fa fa-vimeo" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+                <div class="w3layouts-header-right">
+                    <ul>
+                        <li><a href="#" class="log" data-toggle="modal" data-target="#myModal">Login</a></li>
+                        <li>
+                            <div class="cd-main-header">
+                                <a class="cd-search-trigger" href="#cd-search"> <span></span></a>
+                                <!-- cd-header-buttons -->
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div id="cd-search" class="cd-search">
+                        <form action="#" method="post">
+                            <input name="Search" type="search" placeholder="Search...">
+                        </form>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="agile-w3-top">
+                <div class="agile-logo">
+                    <h1><a href="index.html">Archides Company</a></h1>
+                </div>
+                <div class="w3ls-nav">
+                    <nav class="navbar navbar-default">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                            <ul class="nav navbar-nav">
+                                
+                                <li>@Html.ActionLink("Home", "Index", "News") </li>
+                                <li>@Html.ActionLink("About", "About", "Home")</li>
+                                <li>@Html.ActionLink("Gallery", "Gallery", "Project")</li>
+                                <li>@Html.ActionLink("Our Team", "OurTeam", "Team")</li>
+                                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                            </ul>
+                            <div class="clearfix"> </div>
+                        </div>
+                    </nav>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </div>
+
+        @RenderBody()
+        <hr />
+ 
+    <!-- footer -->
+    <div class="agile-footer">
+        <div class="container">
+            <div class="aglie-info-logo">
+
+                <h2><a href="index.html">Interior Era</a></h2>
+            </div>
+            <ul class="aglieits-nav">
+                <li><a href="index.html">Home</a><i>|</i></li>
+                <li><a href="about.html">About Us</a><i>|</i></li>
+                <li><a href="services.html">Services</a><i>|</i></li>
+                <li><a href="gallery.html">Gallery</a><i>|</i></li>
+                <li><a href="icons.html">Icons</a><i>|</i></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="w3layouts_mail_grid">
+                <div class="col-md-3 w3layouts_mail_grid_left">
+                    <div class="w3layouts_mail_grid_left2">
+                        <span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                        <h3>Mail Us</h3>
+                        <a href="mailto:info@example.com">info@example.com</a>
+                    </div>
+                </div>
+                <div class="col-md-3 w3layouts_mail_grid_left">
+                    <div class="w3layouts_mail_grid_left2">
+                        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                        <h3>Address</h3>
+                        <p>PO Box 8568954 Melbourne, Australia</p>
+                    </div>
+                </div>
+                <div class="col-md-3 w3layouts_mail_grid_left">
+                    <div class="w3layouts_mail_grid_left2">
+                        <span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
+                        <h3>Phone</h3>
+                        <p>+(0121) 121 121</p>
+                    </div>
+                </div>
+                <div class="col-md-3 w3layouts_mail_grid_left">
+                    <div class="w3layouts_mail_grid_left2">
+                        <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                        <h3>Lorem</h3>
+                        <p>Voluptas sit aspernatur aut</p>
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="copy-right">
+                <p>© 2017 Interior Era. All rights reserved | Made By Riinvest Students</p>
+            </div>
+        </div>
+    </div>
+    <!-- //footer -->
+
+    <!-- bootstrap-pop-up -->
+    <div class="modal video-modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <section>
+                    <div class="modal-body">
+                        <div class="w3_login_module">
+                            <div class="module form-module">
+                                <div class="toggle">
+                                
+                                </div>
+                                <div class="form">
+                                    <h3>Login to your account</h3>
+                                    <form action="#" method="post">
+                                        <input type="text" name="Username" placeholder="Username" required="">
+                                        <input type="password" name="Password" placeholder="Password" required="">
+                                        <input type="submit" value="Login">
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+    	<script>
+
+            $(document).ready(function(){
+                $('.toggle').click(function () {
+                    $('.form').animate({
+                        height: "toggle",
+                        'padding-top': 'toggle',
+                        'padding-bottom': 'toggle',
+                        opacity: "toggle"
+                    }, "slow");
+                });
+            });
+	</script>
+<!-- //bootstrap-pop-up -->
+
+   
+
+
+
+
+    <!-- for bootstrap working -->
+    <!-- //for bootstrap working -->
+</body>
+</html>
+
+
+
+
+
+
+
+

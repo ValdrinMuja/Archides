@@ -1,0 +1,50 @@
+﻿@model Archides.Models.Lajmi
+
+@{
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+    <div class="main-content">
+        <div id="page-wrapper">
+            <div class="graphs">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-offset-1 col-md-9 blogShort">
+
+
+                            <h1>
+                                @Html.DisplayFor(model => model.Titulli)
+                            </h1>
+                            <img src="@Url.Content(Model.FotoPath)" width="200" height="200" alt="post img" class="pull-left img-responsive postImg img-thumbnail margin10">
+
+                            <article>
+                                <p>
+
+                                    <label>@String.Format("{0:dd/MM/yyyy HH:mm}", Model.UploadTime)</label>
+                                </p>
+                                <p>
+                                    @Html.DisplayFor(model => model.Pershkrimi)
+                                </p>
+                                <br>
+                                @*<iframe width="100%" height="480" src="//www.youtube.com/embed/Bn_d-ghQ5HA" frameborder="0" allowfullscreen></iframe>*@
+                            </article>
+                            <p>
+                                @Html.ActionLink("Edit", "Edit", new { id = Model.LajmiID }) |
+                                @Html.ActionLink("Back to List", "Index")
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>
+

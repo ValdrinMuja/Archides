@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d74a558716904f41842704f3c6c1df0f" Name="Diagram1">
+        <EntityTypeShape EntityType="DBArchidesArchitetureModel.ContactU" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArchidesArchitetureModel.Kategoria" Width="1.5" PointX="0.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArchidesArchitetureModel.Lajmi" Width="1.5" PointX="8.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArchidesArchitetureModel.LlojiArkitektura" Width="1.5" PointX="6" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArchidesArchitetureModel.Medium" Width="1.5" PointX="8.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArchidesArchitetureModel.MediaType" Width="1.5" PointX="6" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArchidesArchitetureModel.Projekti" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArchidesArchitetureModel.ProjektiUser" Width="1.5" PointX="8.25" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArchidesArchitetureModel.Qyteti" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArchidesArchitetureModel.Roli" Width="1.5" PointX="3.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DBArchidesArchitetureModel.Useri" Width="1.5" PointX="6" PointY="4.375" IsExpanded="true" />
+        <AssociationConnector Association="DBArchidesArchitetureModel.FK__Projekti__Katego__31EC6D26" ManuallyRouted="false" />
+        <AssociationConnector Association="DBArchidesArchitetureModel.FK__Lajmi__UserID__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="DBArchidesArchitetureModel.FK__Media__LlojiArki__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="DBArchidesArchitetureModel.FK__Media__MediaType__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="DBArchidesArchitetureModel.FK__Media__ProjektiI__35BCFE0A" ManuallyRouted="false" />
+        <AssociationConnector Association="DBArchidesArchitetureModel.FK__Projekti__Lokaci__30F848ED" ManuallyRouted="false" />
+        <AssociationConnector Association="DBArchidesArchitetureModel.FK__Projekti__UserID__32E0915F" ManuallyRouted="false" />
+        <AssociationConnector Association="DBArchidesArchitetureModel.FK__ProjektiU__Proje__3A81B327" ManuallyRouted="false" />
+        <AssociationConnector Association="DBArchidesArchitetureModel.FK__ProjektiU__UserI__3B75D760" ManuallyRouted="false" />
+        <AssociationConnector Association="DBArchidesArchitetureModel.FK__Useri__Vendlindj__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="DBArchidesArchitetureModel.FK__Useri__RoliID__2E1BDC42" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

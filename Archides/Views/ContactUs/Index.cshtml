@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Archides.Models.ContactU>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="mainDivNews">
+    <div class="main-content">
+        <div id="page-wrapper">
+            <div class="graphs">
+                <div class="col_3 row">
+                    <div class="col-md-4 span_8">
+
+                        <div class="activity_box activity_box1">
+            @foreach (var item in Model)
+                            {
+
+                            <h3>Subject: @Html.DisplayFor(model => item.Subject)</h3>
+                            <div class="scrollbar" id="style-2">
+                              Name:@Html.DisplayFor(model => item.Emri)    
+                                <br />
+                              Email:@Html.DisplayFor(model => item.Email)
+                                <br />
+                                <br />
+                                <br />
+                                <div class="row">
+                                    Message:@Html.DisplayFor(model => item.Mesazhi)
+                                </div>
+                            </div>
+                            }
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

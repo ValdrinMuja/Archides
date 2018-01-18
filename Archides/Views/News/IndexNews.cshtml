@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Archides.Models.Lajmi>
+@{
+    ViewBag.Title = "IndexNews";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<hr2>All News</hr2>
+<div class="main-content">
+    <div id="page-wrapper">
+        <div class="graphs">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+
+                    <div class="col-sm-6 col-md-4 col-lg-4 mt-4">
+                        <img class="card-img-top" src="@Url.Content(item.FotoPath)" width="150px" height="150px" alt="Card image cap">
+                        <div class="card-block">
+                            <h3 class="card-title">@Html.DisplayFor(model => item.Titulli)</h3>
+                            @*<p class="card-text"></p>*@
+                            <a href="@Url.Action("Details", new { id = item.LajmiID })")" class="btn btn-primary">More Details</a>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+

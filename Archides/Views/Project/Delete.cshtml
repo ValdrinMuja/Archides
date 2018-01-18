@@ -1,0 +1,97 @@
+﻿@model Archides.Models.Projekti
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Projekti</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Titulli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Titulli)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Viti)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Viti)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Madhesia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Madhesia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Statusi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Statusi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pershkrimi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pershkrimi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UploadTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UploadTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kategoria.Kategoria1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kategoria.Kategoria1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Qyteti.Qyteti1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Qyteti.Qyteti1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Useri.Emri)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Useri.Emri)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

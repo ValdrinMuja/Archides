@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DBArchidesArchitetureModelStoreContainer" CdmEntityContainer="DBArchidesArchitetureEntities">
+    <EntitySetMapping Name="ContactUs">
+      <EntityTypeMapping TypeName="DBArchidesArchitetureModel.ContactU">
+        <MappingFragment StoreEntitySet="ContactUs">
+          <ScalarProperty Name="ContactUsID" ColumnName="ContactUsID" />
+          <ScalarProperty Name="Emri" ColumnName="Emri" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Subject" ColumnName="Subject" />
+          <ScalarProperty Name="Mesazhi" ColumnName="Mesazhi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kategorias">
+      <EntityTypeMapping TypeName="DBArchidesArchitetureModel.Kategoria">
+        <MappingFragment StoreEntitySet="Kategoria">
+          <ScalarProperty Name="KategoriaID" ColumnName="KategoriaID" />
+          <ScalarProperty Name="Kategoria1" ColumnName="Kategoria" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Lajmis">
+      <EntityTypeMapping TypeName="DBArchidesArchitetureModel.Lajmi">
+        <MappingFragment StoreEntitySet="Lajmi">
+          <ScalarProperty Name="LajmiID" ColumnName="LajmiID" />
+          <ScalarProperty Name="FotoPath" ColumnName="FotoPath" />
+          <ScalarProperty Name="VideoPath" ColumnName="VideoPath" />
+          <ScalarProperty Name="UploadTime" ColumnName="UploadTime" />
+          <ScalarProperty Name="Titulli" ColumnName="Titulli" />
+          <ScalarProperty Name="Pershkrimi" ColumnName="Pershkrimi" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LlojiArkitekturas">
+      <EntityTypeMapping TypeName="DBArchidesArchitetureModel.LlojiArkitektura">
+        <MappingFragment StoreEntitySet="LlojiArkitektura">
+          <ScalarProperty Name="LlojiArkitekturaID" ColumnName="LlojiArkitekturaID" />
+          <ScalarProperty Name="LlojiArkitektura1" ColumnName="LlojiArkitektura" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Media">
+      <EntityTypeMapping TypeName="DBArchidesArchitetureModel.Medium">
+        <MappingFragment StoreEntitySet="Media">
+          <ScalarProperty Name="MediaID" ColumnName="MediaID" />
+          <ScalarProperty Name="ProjektiID" ColumnName="ProjektiID" />
+          <ScalarProperty Name="MediaTypeID" ColumnName="MediaTypeID" />
+          <ScalarProperty Name="LlojiArkitekturaID" ColumnName="LlojiArkitekturaID" />
+          <ScalarProperty Name="MediaPath" ColumnName="MediaPath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MediaTypes">
+      <EntityTypeMapping TypeName="DBArchidesArchitetureModel.MediaType">
+        <MappingFragment StoreEntitySet="MediaType">
+          <ScalarProperty Name="MediaTypeID" ColumnName="MediaTypeID" />
+          <ScalarProperty Name="MediaType1" ColumnName="MediaType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Projektis">
+      <EntityTypeMapping TypeName="DBArchidesArchitetureModel.Projekti">
+        <MappingFragment StoreEntitySet="Projekti">
+          <ScalarProperty Name="ProjektiID" ColumnName="ProjektiID" />
+          <ScalarProperty Name="Titulli" ColumnName="Titulli" />
+          <ScalarProperty Name="Lokacioni" ColumnName="Lokacioni" />
+          <ScalarProperty Name="Viti" ColumnName="Viti" />
+          <ScalarProperty Name="Madhesia" ColumnName="Madhesia" />
+          <ScalarProperty Name="KategoriaID" ColumnName="KategoriaID" />
+          <ScalarProperty Name="Statusi" ColumnName="Statusi" />
+          <ScalarProperty Name="Pershkrimi" ColumnName="Pershkrimi" />
+          <ScalarProperty Name="UploadTime" ColumnName="UploadTime" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProjektiUsers">
+      <EntityTypeMapping TypeName="DBArchidesArchitetureModel.ProjektiUser">
+        <MappingFragment StoreEntitySet="ProjektiUser">
+          <ScalarProperty Name="ProjektiUserID" ColumnName="ProjektiUserID" />
+          <ScalarProperty Name="ProjektiID" ColumnName="ProjektiID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Qytetis">
+      <EntityTypeMapping TypeName="DBArchidesArchitetureModel.Qyteti">
+        <MappingFragment StoreEntitySet="Qyteti">
+          <ScalarProperty Name="QytetiID" ColumnName="QytetiID" />
+          <ScalarProperty Name="Qyteti1" ColumnName="Qyteti" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rolis">
+      <EntityTypeMapping TypeName="DBArchidesArchitetureModel.Roli">
+        <MappingFragment StoreEntitySet="Roli">
+          <ScalarProperty Name="RoliID" ColumnName="RoliID" />
+          <ScalarProperty Name="Roli1" ColumnName="Roli" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Useris">
+      <EntityTypeMapping TypeName="DBArchidesArchitetureModel.Useri">
+        <MappingFragment StoreEntitySet="Useri">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Emri" ColumnName="Emri" />
+          <ScalarProperty Name="Mbiemri" ColumnName="Mbiemri" />
+          <ScalarProperty Name="Gjinia" ColumnName="Gjinia" />
+          <ScalarProperty Name="Vendlindja" ColumnName="Vendlindja" />
+          <ScalarProperty Name="Datelindja" ColumnName="Datelindja" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Telefoni" ColumnName="Telefoni" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Pershkrimi" ColumnName="Pershkrimi" />
+          <ScalarProperty Name="Foto" ColumnName="Foto" />
+          <ScalarProperty Name="RoliID" ColumnName="RoliID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

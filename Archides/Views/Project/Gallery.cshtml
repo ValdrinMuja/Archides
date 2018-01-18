@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Archides.Models.Projekti>
+<html>
+<head>
+</head>
+<body>
+    <div class="agileinfo-gal">
+        <div class="container">
+            <h3 class="agile">Our Projects</h3>
+            <div class="agileits_portfolio_grids">
+
+                @foreach (var item in Model)
+                {
+                    
+                <div class="col-md-3 agileits_portfolio_grid">
+                    <div class="agileinfo_portfolio_grid hovereffect">
+                        
+                        <a class="cm-overlay" href="@Url.Action("Details", new { id = item.ProjektiID })">
+                            @foreach (var foto in item.Media)
+                            {
+                                if (foto == item.Media.First())
+                                {
+                                    string fotoPath = foto.MediaPath;
+                                    <img src="@Url.Content(fotoPath)" alt=" " class="img-responsive">
+
+                                }
+                            }
+                            
+                            <div class="overlay">
+                                <h4>@item.Titulli</h4>
+                                <p>@item.Qyteti.Qyteti1,@String.Format("{0:dd/MM/yyyy}", item.UploadTime),@item.Statusi</p>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+                }
+                <div class="clearfix"> </div>
+            </div>
+            <script src="js/jquery.tools.min.js"></script>
+            <script src="js/jquery.mobile.custom.min.js"></script>
+            <script src="js/jquery.cm-overlay.js"></script>
+            <script>
+                $(document).ready(function () {
+                    $('.cm-overlay').cmOverlay();
+                });
+            </script>
+        </div>
+    </div>
+</body>
+<!-- newsletter -->
+</html>

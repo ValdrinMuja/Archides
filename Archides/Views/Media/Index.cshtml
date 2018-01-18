@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Archides.Models.Medium>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+<div class="main-content">
+    <div id="page-wrapper">
+        <div class="graphs">
+            <div class="container">
+                <p>
+                    @Html.ActionLink("Create New", "Create")
+                </p>
+                <table class="table">
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.MediaPath)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.LlojiArkitektura.LlojiArkitektura1)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.MediaType.MediaType1)
+                        </th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Projekti.Titulli)
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MediaPath)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.LlojiArkitektura.LlojiArkitektura1)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.MediaType.MediaType1)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Projekti.Titulli)
+                            </td>
+                            <td>
+                                @Html.ActionLink("Edit", "Edit", new { id = item.MediaID }) |
+                                @Html.ActionLink("Details", "Details", new { id = item.MediaID }) |
+                                @Html.ActionLink("Delete", "Delete", new { id = item.MediaID })
+                            </td>
+                        </tr>
+                    }
+
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

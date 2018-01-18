@@ -1,0 +1,125 @@
+﻿@model Archides.Models.Useri
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<head>
+    <link href="~/ContentAdminLayout/UserUploadImage/UploadSingleImage.css" rel="stylesheet" />
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+</head>
+
+@using (Html.BeginForm("Create", "Team", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="main-content">
+        <div id="page-wrapper">
+            <div class="graphs">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+                            <form role="form">
+      
+                                    <h4>Upload News here...</h4>
+                                    <hr class="colorgraph">
+
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-6 col-md-6">
+                                            <div class="form-group">
+                                                @Html.EditorFor(model => model.Emri, new { htmlAttributes = new { @class = "form-control input-lg", placeholder = "Write name of user here..." } })
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 col-md-6">
+                                            <div class="form-group">
+                                                @Html.EditorFor(model => model.Mbiemri, new { htmlAttributes = new { @class = "form-control input-lg", placeholder = "Write surname of user here..." } })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-6 col-md-6">
+                                            <div class="form-group">
+                                                @Html.EditorFor(model => model.Gjinia, new { htmlAttributes = new { @class = "form-control input-lg", placeholder = "Write gender of user here..." } })
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 col-md-6">
+                                            <div class="form-group">
+                                                @Html.DropDownList("Vendlindja", null, htmlAttributes: new { @class = "form-control input-lg", placeholder = "Write birthplace of user here..." })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-6 col-md-6">
+                                            <div class="form-group">
+                                                @Html.EditorFor(model => model.Datelindja, new { htmlAttributes = new { @class = "form-control input-lg", placeholder = "Write birthdate of user here..." } })
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 col-md-6">
+                                            <div class="form-group">
+                                                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control input-lg", placeholder = "Write email of user here..." } })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.EditorFor(model => model.Telefoni, new { htmlAttributes = new { @class = "form-control input-lg", placeholder = "Write Phone number of user here..." } })
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-xs-12 col-sm-6 col-md-6">
+                                            <div class="form-group">
+                                                @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control input-lg", placeholder = "Write username here..." } })
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 col-sm-6 col-md-6">
+                                            <div class="form-group">
+                                                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control input-lg", placeholder = "Write password of user here..." } })
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.EditorFor(model => model.Pershkrimi, new { htmlAttributes = new { @class = "form-control input-lg", placeholder = "Write description of user here..." } })
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div id="image-preview">
+                                            <label for="image-upload" id="image-label">Click here to upload image</label>
+
+                                            <input type="file" id="UserImage" name="UserImage" />
+                                        </div>
+                                    </div>
+
+                                    <hr class="colorgraph">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-6"><input type="submit" value="Create" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
+                                        <div class="col-xs-12 col-md-6"><a href="#" class="btn btn-success btn-block btn-lg">Cancel</a></div>
+                                    </div>
+
+                            </form>
+                        </div>
+                    </div>
+                    <div>
+                    </div>
+                </div>
+                
+            </div>
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+                </div>
+                }
+
+                <script type="text/javascript">
+                    $(document).ready(function () {
+                        $.uploadPreview({
+                            input_field: "#UserImage",
+                            preview_box: "#image-preview",
+                            label_field: "#image-label"
+                        });
+
+
+                        $(function () { // will trigger when the document is ready
+                            $('.datepicker').datepicker(); //Initialise any date pickers
+                        });
+                    });
+                </script>
+

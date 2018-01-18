@@ -1,0 +1,77 @@
+﻿
+@model IEnumerable<Archides.Models.Useri>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<html lang="en">
+<head>
+    <!-- Google Fonts -->
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="~/Content/cardOfUser.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="rowTeam">
+        @foreach (var item in Model)
+        {
+
+            <div class="col-lg-3 col-sm-3 col-12 main-section text-center">
+                <div class="rowTeam">
+                    <div class="col-lg-12 col-sm- col-12 profile-header"></div>
+                </div>
+                <div class="rowTeam user-detail">
+                    <div class="col-lg-12 col-sm-12 col-12">
+                        <img src="@Url.Content(item.Foto)" alt="User Photos" class="rounded-circle img-thumbnailTeam" />
+                        <h5>
+                            <label for="name" class="cols-sm-2 control-label">
+                                @Html.DisplayFor(modelItem => item.Emri)
+                            </label>
+                            <label for="surname" class="cols-sm-2 control-label">
+                                @Html.DisplayFor(modelItem => item.Mbiemri)
+                            </label>
+                        </h5>
+
+                        <article>
+                            <div class="desc"><i class="fa fa-user" aria-hidden="true"></i><strong>@Html.DisplayFor(modelItem => item.Pershkrimi)</strong></div>
+                            <div class="desc"><i class="fa fa-transgender-alt" aria-hidden="true"></i>@Html.DisplayFor(modelItem => item.Gjinia)</div>
+                            <div class="desc"><i class="fa fa-map-marker" aria-hidden="true"></i>@Html.DisplayFor(modelItem => item.Qyteti.Qyteti1) </div>
+                            <div class="desc"><i class="fa fa-envelope fa" aria-hidden="true"></i>@Html.DisplayFor(modelItem => item.Email)</div>
+                        </article>
+                        <hr>
+                        <a href="#" class="btn btn-success btn-sm">Follow</a>
+                        <a href="#" class="btn btn-info btn-sm">Send Messege</a>
+                        <hr>
+
+                    </div>
+                </div>
+            </div>
+
+
+        }
+    </div>
+
+</body>
+
+
+
+
+@*<div class="panel-footer">
+        @using (Html.BeginForm("Delete", "Useri", new { id = item.UserID }))
+        {
+            <button class="btn-danger" type="button" name="Delete" onclick="return confirm('Are you sure you want to Delete: @item.Emri @item.Mbiemri')">Delete</button>
+        }
+
+        @Html.ActionLink("Edit", "Edit", new { id = item.UserID })
+
+
+        @using (Html.BeginForm("Details", "Useri", new { id = item.UserID }))
+        {
+            <button class="btn-primary" type="submit">Details</button>
+        }
+    </div>*@
+
+</html>
+
+
+

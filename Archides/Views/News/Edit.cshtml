@@ -1,0 +1,78 @@
+﻿@model Archides.Models.Lajmi
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<head>
+
+    <link href="~/ContentAdminLayout/NewsUploadImage/UploadNewsImage.css" rel="stylesheet" />
+    <link href="~/ContentAdminLayout/styleUser.css" rel="stylesheet" />
+</head>
+
+@using (Html.BeginForm("Edit", "News", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.LajmiID)
+    <div class="main-content">
+        <div id="page-wrapper">
+            <div class="graphs">
+                <div class="container">
+                        <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+                            <form role="form">
+                                    <h4>Upload News here...</h4>
+                                    <hr class="colorgraph">
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div id="image-preview">
+                                                <label for="image-upload" id="image-label">Click here to upload picture</label>
+                                                <input type="file" id="NewsImage" name="NewsImage" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    Title of News
+                                    <div class="form-group">
+                                        @Html.EditorFor(model => model.Titulli, new { htmlAttributes = new { @class = "form-control input-lg" } })
+                                    </div>
+                                    <div class="form-group">
+                                        News Description
+                                        @Html.TextAreaFor(model => model.Pershkrimi, 12, 65, new { htmlAttributes = new { @class = "form-control input-lg", placeholder = "Write Phone number of user here..." } })
+                                    </div>
+                                    <hr class="colorgraph">
+                                    <div class="row">
+                                        <div class="col-xs-12 col-md-6"><input type="submit" value="Edit" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
+                                        <div class="col-xs-12 col-md-6"><input type="reset" name="Cancel" value="Cancel" class="btn btn-primary btn-block btn-lg" /></div>
+                                    </div>
+                            </form>
+                        </div>
+                    <div>
+                        @Html.ActionLink("Back to List", "Index")
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+}
+
+@*@Html.EditorFor(model => model.VideoPath, new { htmlAttributes = new { @class = "form-control" } })*@
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $.uploadPreview({
+            input_field: "#NewsImage",
+            preview_box: "#image-preview",
+            label_field: "#image-label"
+        });
+    });
+</script>
+
+
+
+
+
+
+@*<div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@

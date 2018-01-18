@@ -1,0 +1,22 @@
+﻿@model Archides.Models.Medium
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Freebie: 4 Bootstrap Gallery Templates</title>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Droid+Sans:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.css">
+    <link href="~/Content/ProjectCss/FluidGallery.css" rel="stylesheet" />
+</head>
+
+
+    <div class="col-sm-12 col-md-3">
+        <a class="lightbox" href="@Url.Content(Model.MediaPath)">
+            <img src="@Url.Content(Model.MediaPath)" alt="User Photos" />
+        </a>
+    </div>
+                    
+
+
+

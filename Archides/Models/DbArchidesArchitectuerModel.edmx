@@ -1,0 +1,777 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DBArchidesArchitetureModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ContactUs">
+          <Key>
+            <PropertyRef Name="ContactUsID" />
+          </Key>
+          <Property Name="ContactUsID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Emri" Type="varchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Subject" Type="varchar" MaxLength="50" />
+          <Property Name="Mesazhi" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Kategoria">
+          <Key>
+            <PropertyRef Name="KategoriaID" />
+          </Key>
+          <Property Name="KategoriaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Kategoria" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Lajmi">
+          <Key>
+            <PropertyRef Name="LajmiID" />
+          </Key>
+          <Property Name="LajmiID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FotoPath" Type="varchar" MaxLength="250" />
+          <Property Name="VideoPath" Type="varchar" MaxLength="250" />
+          <Property Name="UploadTime" Type="datetime" />
+          <Property Name="Titulli" Type="varchar" MaxLength="200" />
+          <Property Name="Pershkrimi" Type="varchar(max)" />
+          <Property Name="UserID" Type="int" />
+        </EntityType>
+        <EntityType Name="LlojiArkitektura">
+          <Key>
+            <PropertyRef Name="LlojiArkitekturaID" />
+          </Key>
+          <Property Name="LlojiArkitekturaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LlojiArkitektura" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Media">
+          <Key>
+            <PropertyRef Name="MediaID" />
+          </Key>
+          <Property Name="MediaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjektiID" Type="int" />
+          <Property Name="MediaTypeID" Type="int" />
+          <Property Name="LlojiArkitekturaID" Type="int" />
+          <Property Name="MediaPath" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="MediaType">
+          <Key>
+            <PropertyRef Name="MediaTypeID" />
+          </Key>
+          <Property Name="MediaTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MediaType" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Projekti">
+          <Key>
+            <PropertyRef Name="ProjektiID" />
+          </Key>
+          <Property Name="ProjektiID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Titulli" Type="varchar" MaxLength="200" />
+          <Property Name="Lokacioni" Type="int" />
+          <Property Name="Viti" Type="date" />
+          <Property Name="Madhesia" Type="varchar" MaxLength="50" />
+          <Property Name="KategoriaID" Type="int" />
+          <Property Name="Statusi" Type="varchar" MaxLength="50" />
+          <Property Name="Pershkrimi" Type="varchar(max)" />
+          <Property Name="UploadTime" Type="datetime" />
+          <Property Name="UserID" Type="int" />
+        </EntityType>
+        <EntityType Name="ProjektiUser">
+          <Key>
+            <PropertyRef Name="ProjektiUserID" />
+          </Key>
+          <Property Name="ProjektiUserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProjektiID" Type="int" />
+          <Property Name="UserID" Type="int" />
+        </EntityType>
+        <EntityType Name="Qyteti">
+          <Key>
+            <PropertyRef Name="QytetiID" />
+          </Key>
+          <Property Name="QytetiID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Qyteti" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Roli">
+          <Key>
+            <PropertyRef Name="RoliID" />
+          </Key>
+          <Property Name="RoliID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Roli" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Useri">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Emri" Type="varchar" MaxLength="50" />
+          <Property Name="Mbiemri" Type="varchar" MaxLength="50" />
+          <Property Name="Gjinia" Type="varchar" MaxLength="50" />
+          <Property Name="Vendlindja" Type="int" />
+          <Property Name="Datelindja" Type="date" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="Telefoni" Type="varchar" MaxLength="50" />
+          <Property Name="Username" Type="varchar" MaxLength="50" />
+          <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="Pershkrimi" Type="varchar" MaxLength="50" />
+          <Property Name="Foto" Type="varchar" MaxLength="200" />
+          <Property Name="RoliID" Type="int" />
+        </EntityType>
+        <Association Name="FK__Lajmi__UserID__3E52440B">
+          <End Role="Useri" Type="Self.Useri" Multiplicity="0..1" />
+          <End Role="Lajmi" Type="Self.Lajmi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Useri">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Lajmi">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Media__LlojiArki__37A5467C">
+          <End Role="LlojiArkitektura" Type="Self.LlojiArkitektura" Multiplicity="0..1" />
+          <End Role="Media" Type="Self.Media" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LlojiArkitektura">
+              <PropertyRef Name="LlojiArkitekturaID" />
+            </Principal>
+            <Dependent Role="Media">
+              <PropertyRef Name="LlojiArkitekturaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Media__MediaType__36B12243">
+          <End Role="MediaType" Type="Self.MediaType" Multiplicity="0..1" />
+          <End Role="Media" Type="Self.Media" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MediaType">
+              <PropertyRef Name="MediaTypeID" />
+            </Principal>
+            <Dependent Role="Media">
+              <PropertyRef Name="MediaTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Media__ProjektiI__35BCFE0A">
+          <End Role="Projekti" Type="Self.Projekti" Multiplicity="0..1" />
+          <End Role="Media" Type="Self.Media" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projekti">
+              <PropertyRef Name="ProjektiID" />
+            </Principal>
+            <Dependent Role="Media">
+              <PropertyRef Name="ProjektiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Projekti__Katego__31EC6D26">
+          <End Role="Kategoria" Type="Self.Kategoria" Multiplicity="0..1" />
+          <End Role="Projekti" Type="Self.Projekti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kategoria">
+              <PropertyRef Name="KategoriaID" />
+            </Principal>
+            <Dependent Role="Projekti">
+              <PropertyRef Name="KategoriaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Projekti__Lokaci__30F848ED">
+          <End Role="Qyteti" Type="Self.Qyteti" Multiplicity="0..1" />
+          <End Role="Projekti" Type="Self.Projekti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Qyteti">
+              <PropertyRef Name="QytetiID" />
+            </Principal>
+            <Dependent Role="Projekti">
+              <PropertyRef Name="Lokacioni" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Projekti__UserID__32E0915F">
+          <End Role="Useri" Type="Self.Useri" Multiplicity="0..1" />
+          <End Role="Projekti" Type="Self.Projekti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Useri">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Projekti">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProjektiU__Proje__3A81B327">
+          <End Role="Projekti" Type="Self.Projekti" Multiplicity="0..1" />
+          <End Role="ProjektiUser" Type="Self.ProjektiUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projekti">
+              <PropertyRef Name="ProjektiID" />
+            </Principal>
+            <Dependent Role="ProjektiUser">
+              <PropertyRef Name="ProjektiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProjektiU__UserI__3B75D760">
+          <End Role="Useri" Type="Self.Useri" Multiplicity="0..1" />
+          <End Role="ProjektiUser" Type="Self.ProjektiUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Useri">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="ProjektiUser">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Useri__RoliID__2E1BDC42">
+          <End Role="Roli" Type="Self.Roli" Multiplicity="0..1" />
+          <End Role="Useri" Type="Self.Useri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roli">
+              <PropertyRef Name="RoliID" />
+            </Principal>
+            <Dependent Role="Useri">
+              <PropertyRef Name="RoliID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Useri__Vendlindj__2D27B809">
+          <End Role="Qyteti" Type="Self.Qyteti" Multiplicity="0..1" />
+          <End Role="Useri" Type="Self.Useri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Qyteti">
+              <PropertyRef Name="QytetiID" />
+            </Principal>
+            <Dependent Role="Useri">
+              <PropertyRef Name="Vendlindja" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBArchidesArchitetureModelStoreContainer">
+          <EntitySet Name="ContactUs" EntityType="Self.ContactUs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kategoria" EntityType="Self.Kategoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lajmi" EntityType="Self.Lajmi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LlojiArkitektura" EntityType="Self.LlojiArkitektura" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Media" EntityType="Self.Media" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MediaType" EntityType="Self.MediaType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Projekti" EntityType="Self.Projekti" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProjektiUser" EntityType="Self.ProjektiUser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Qyteti" EntityType="Self.Qyteti" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Roli" EntityType="Self.Roli" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Useri" EntityType="Self.Useri" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Lajmi__UserID__3E52440B" Association="Self.FK__Lajmi__UserID__3E52440B">
+            <End Role="Useri" EntitySet="Useri" />
+            <End Role="Lajmi" EntitySet="Lajmi" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Media__LlojiArki__37A5467C" Association="Self.FK__Media__LlojiArki__37A5467C">
+            <End Role="LlojiArkitektura" EntitySet="LlojiArkitektura" />
+            <End Role="Media" EntitySet="Media" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Media__MediaType__36B12243" Association="Self.FK__Media__MediaType__36B12243">
+            <End Role="MediaType" EntitySet="MediaType" />
+            <End Role="Media" EntitySet="Media" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Media__ProjektiI__35BCFE0A" Association="Self.FK__Media__ProjektiI__35BCFE0A">
+            <End Role="Projekti" EntitySet="Projekti" />
+            <End Role="Media" EntitySet="Media" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Projekti__Katego__31EC6D26" Association="Self.FK__Projekti__Katego__31EC6D26">
+            <End Role="Kategoria" EntitySet="Kategoria" />
+            <End Role="Projekti" EntitySet="Projekti" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Projekti__Lokaci__30F848ED" Association="Self.FK__Projekti__Lokaci__30F848ED">
+            <End Role="Qyteti" EntitySet="Qyteti" />
+            <End Role="Projekti" EntitySet="Projekti" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Projekti__UserID__32E0915F" Association="Self.FK__Projekti__UserID__32E0915F">
+            <End Role="Useri" EntitySet="Useri" />
+            <End Role="Projekti" EntitySet="Projekti" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProjektiU__Proje__3A81B327" Association="Self.FK__ProjektiU__Proje__3A81B327">
+            <End Role="Projekti" EntitySet="Projekti" />
+            <End Role="ProjektiUser" EntitySet="ProjektiUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProjektiU__UserI__3B75D760" Association="Self.FK__ProjektiU__UserI__3B75D760">
+            <End Role="Useri" EntitySet="Useri" />
+            <End Role="ProjektiUser" EntitySet="ProjektiUser" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Useri__RoliID__2E1BDC42" Association="Self.FK__Useri__RoliID__2E1BDC42">
+            <End Role="Roli" EntitySet="Roli" />
+            <End Role="Useri" EntitySet="Useri" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Useri__Vendlindj__2D27B809" Association="Self.FK__Useri__Vendlindj__2D27B809">
+            <End Role="Qyteti" EntitySet="Qyteti" />
+            <End Role="Useri" EntitySet="Useri" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DBArchidesArchitetureModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ContactU">
+          <Key>
+            <PropertyRef Name="ContactUsID" />
+          </Key>
+          <Property Name="ContactUsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Emri" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Subject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mesazhi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Kategoria">
+          <Key>
+            <PropertyRef Name="KategoriaID" />
+          </Key>
+          <Property Name="KategoriaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Kategoria1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Projektis" Relationship="Self.FK__Projekti__Katego__31EC6D26" FromRole="Kategoria" ToRole="Projekti" />
+        </EntityType>
+        <EntityType Name="Lajmi">
+          <Key>
+            <PropertyRef Name="LajmiID" />
+          </Key>
+          <Property Name="LajmiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FotoPath" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="VideoPath" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="UploadTime" Type="DateTime" Precision="3" />
+          <Property Name="Titulli" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Pershkrimi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="UserID" Type="Int32" />
+          <NavigationProperty Name="Useri" Relationship="Self.FK__Lajmi__UserID__3E52440B" FromRole="Lajmi" ToRole="Useri" />
+        </EntityType>
+        <EntityType Name="LlojiArkitektura">
+          <Key>
+            <PropertyRef Name="LlojiArkitekturaID" />
+          </Key>
+          <Property Name="LlojiArkitekturaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LlojiArkitektura1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Media" Relationship="Self.FK__Media__LlojiArki__37A5467C" FromRole="LlojiArkitektura" ToRole="Media" />
+        </EntityType>
+        <EntityType Name="Medium">
+          <Key>
+            <PropertyRef Name="MediaID" />
+          </Key>
+          <Property Name="MediaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjektiID" Type="Int32" />
+          <Property Name="MediaTypeID" Type="Int32" />
+          <Property Name="LlojiArkitekturaID" Type="Int32" />
+          <Property Name="MediaPath" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="LlojiArkitektura" Relationship="Self.FK__Media__LlojiArki__37A5467C" FromRole="Media" ToRole="LlojiArkitektura" />
+          <NavigationProperty Name="MediaType" Relationship="Self.FK__Media__MediaType__36B12243" FromRole="Media" ToRole="MediaType" />
+          <NavigationProperty Name="Projekti" Relationship="Self.FK__Media__ProjektiI__35BCFE0A" FromRole="Media" ToRole="Projekti" />
+        </EntityType>
+        <EntityType Name="MediaType">
+          <Key>
+            <PropertyRef Name="MediaTypeID" />
+          </Key>
+          <Property Name="MediaTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MediaType1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Media" Relationship="Self.FK__Media__MediaType__36B12243" FromRole="MediaType" ToRole="Media" />
+        </EntityType>
+        <EntityType Name="Projekti">
+          <Key>
+            <PropertyRef Name="ProjektiID" />
+          </Key>
+          <Property Name="ProjektiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Titulli" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Lokacioni" Type="Int32" />
+          <Property Name="Viti" Type="DateTime" Precision="0" />
+          <Property Name="Madhesia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="KategoriaID" Type="Int32" />
+          <Property Name="Statusi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Pershkrimi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="UploadTime" Type="DateTime" Precision="3" />
+          <Property Name="UserID" Type="Int32" />
+          <NavigationProperty Name="Kategoria" Relationship="Self.FK__Projekti__Katego__31EC6D26" FromRole="Projekti" ToRole="Kategoria" />
+          <NavigationProperty Name="Media" Relationship="Self.FK__Media__ProjektiI__35BCFE0A" FromRole="Projekti" ToRole="Media" />
+          <NavigationProperty Name="Qyteti" Relationship="Self.FK__Projekti__Lokaci__30F848ED" FromRole="Projekti" ToRole="Qyteti" />
+          <NavigationProperty Name="Useri" Relationship="Self.FK__Projekti__UserID__32E0915F" FromRole="Projekti" ToRole="Useri" />
+          <NavigationProperty Name="ProjektiUsers" Relationship="Self.FK__ProjektiU__Proje__3A81B327" FromRole="Projekti" ToRole="ProjektiUser" />
+        </EntityType>
+        <EntityType Name="ProjektiUser">
+          <Key>
+            <PropertyRef Name="ProjektiUserID" />
+          </Key>
+          <Property Name="ProjektiUserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProjektiID" Type="Int32" />
+          <Property Name="UserID" Type="Int32" />
+          <NavigationProperty Name="Projekti" Relationship="Self.FK__ProjektiU__Proje__3A81B327" FromRole="ProjektiUser" ToRole="Projekti" />
+          <NavigationProperty Name="Useri" Relationship="Self.FK__ProjektiU__UserI__3B75D760" FromRole="ProjektiUser" ToRole="Useri" />
+        </EntityType>
+        <EntityType Name="Qyteti">
+          <Key>
+            <PropertyRef Name="QytetiID" />
+          </Key>
+          <Property Name="QytetiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Qyteti1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Projektis" Relationship="Self.FK__Projekti__Lokaci__30F848ED" FromRole="Qyteti" ToRole="Projekti" />
+          <NavigationProperty Name="Useris" Relationship="Self.FK__Useri__Vendlindj__2D27B809" FromRole="Qyteti" ToRole="Useri" />
+        </EntityType>
+        <EntityType Name="Roli">
+          <Key>
+            <PropertyRef Name="RoliID" />
+          </Key>
+          <Property Name="RoliID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Roli1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Useris" Relationship="Self.FK__Useri__RoliID__2E1BDC42" FromRole="Roli" ToRole="Useri" />
+        </EntityType>
+        <EntityType Name="Useri">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Emri" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Mbiemri" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Gjinia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Vendlindja" Type="Int32" />
+          <Property Name="Datelindja" Type="DateTime" Precision="0" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Telefoni" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Pershkrimi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Foto" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="RoliID" Type="Int32" />
+          <NavigationProperty Name="Lajmis" Relationship="Self.FK__Lajmi__UserID__3E52440B" FromRole="Useri" ToRole="Lajmi" />
+          <NavigationProperty Name="Projektis" Relationship="Self.FK__Projekti__UserID__32E0915F" FromRole="Useri" ToRole="Projekti" />
+          <NavigationProperty Name="ProjektiUsers" Relationship="Self.FK__ProjektiU__UserI__3B75D760" FromRole="Useri" ToRole="ProjektiUser" />
+          <NavigationProperty Name="Qyteti" Relationship="Self.FK__Useri__Vendlindj__2D27B809" FromRole="Useri" ToRole="Qyteti" />
+          <NavigationProperty Name="Roli" Relationship="Self.FK__Useri__RoliID__2E1BDC42" FromRole="Useri" ToRole="Roli" />
+        </EntityType>
+        <Association Name="FK__Projekti__Katego__31EC6D26">
+          <End Role="Kategoria" Type="Self.Kategoria" Multiplicity="0..1" />
+          <End Role="Projekti" Type="Self.Projekti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kategoria">
+              <PropertyRef Name="KategoriaID" />
+            </Principal>
+            <Dependent Role="Projekti">
+              <PropertyRef Name="KategoriaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Lajmi__UserID__3E52440B">
+          <End Role="Useri" Type="Self.Useri" Multiplicity="0..1" />
+          <End Role="Lajmi" Type="Self.Lajmi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Useri">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Lajmi">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Media__LlojiArki__37A5467C">
+          <End Role="LlojiArkitektura" Type="Self.LlojiArkitektura" Multiplicity="0..1" />
+          <End Role="Media" Type="Self.Medium" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LlojiArkitektura">
+              <PropertyRef Name="LlojiArkitekturaID" />
+            </Principal>
+            <Dependent Role="Media">
+              <PropertyRef Name="LlojiArkitekturaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Media__MediaType__36B12243">
+          <End Role="MediaType" Type="Self.MediaType" Multiplicity="0..1" />
+          <End Role="Media" Type="Self.Medium" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MediaType">
+              <PropertyRef Name="MediaTypeID" />
+            </Principal>
+            <Dependent Role="Media">
+              <PropertyRef Name="MediaTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Media__ProjektiI__35BCFE0A">
+          <End Role="Projekti" Type="Self.Projekti" Multiplicity="0..1" />
+          <End Role="Media" Type="Self.Medium" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projekti">
+              <PropertyRef Name="ProjektiID" />
+            </Principal>
+            <Dependent Role="Media">
+              <PropertyRef Name="ProjektiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Projekti__Lokaci__30F848ED">
+          <End Role="Qyteti" Type="Self.Qyteti" Multiplicity="0..1" />
+          <End Role="Projekti" Type="Self.Projekti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Qyteti">
+              <PropertyRef Name="QytetiID" />
+            </Principal>
+            <Dependent Role="Projekti">
+              <PropertyRef Name="Lokacioni" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Projekti__UserID__32E0915F">
+          <End Role="Useri" Type="Self.Useri" Multiplicity="0..1" />
+          <End Role="Projekti" Type="Self.Projekti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Useri">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="Projekti">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProjektiU__Proje__3A81B327">
+          <End Role="Projekti" Type="Self.Projekti" Multiplicity="0..1" />
+          <End Role="ProjektiUser" Type="Self.ProjektiUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Projekti">
+              <PropertyRef Name="ProjektiID" />
+            </Principal>
+            <Dependent Role="ProjektiUser">
+              <PropertyRef Name="ProjektiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ProjektiU__UserI__3B75D760">
+          <End Role="Useri" Type="Self.Useri" Multiplicity="0..1" />
+          <End Role="ProjektiUser" Type="Self.ProjektiUser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Useri">
+              <PropertyRef Name="UserID" />
+            </Principal>
+            <Dependent Role="ProjektiUser">
+              <PropertyRef Name="UserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Useri__Vendlindj__2D27B809">
+          <End Role="Qyteti" Type="Self.Qyteti" Multiplicity="0..1" />
+          <End Role="Useri" Type="Self.Useri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Qyteti">
+              <PropertyRef Name="QytetiID" />
+            </Principal>
+            <Dependent Role="Useri">
+              <PropertyRef Name="Vendlindja" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Useri__RoliID__2E1BDC42">
+          <End Role="Roli" Type="Self.Roli" Multiplicity="0..1" />
+          <End Role="Useri" Type="Self.Useri" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roli">
+              <PropertyRef Name="RoliID" />
+            </Principal>
+            <Dependent Role="Useri">
+              <PropertyRef Name="RoliID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DBArchidesArchitetureEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ContactUs" EntityType="Self.ContactU" />
+          <EntitySet Name="Kategorias" EntityType="Self.Kategoria" />
+          <EntitySet Name="Lajmis" EntityType="Self.Lajmi" />
+          <EntitySet Name="LlojiArkitekturas" EntityType="Self.LlojiArkitektura" />
+          <EntitySet Name="Media" EntityType="Self.Medium" />
+          <EntitySet Name="MediaTypes" EntityType="Self.MediaType" />
+          <EntitySet Name="Projektis" EntityType="Self.Projekti" />
+          <EntitySet Name="ProjektiUsers" EntityType="Self.ProjektiUser" />
+          <EntitySet Name="Qytetis" EntityType="Self.Qyteti" />
+          <EntitySet Name="Rolis" EntityType="Self.Roli" />
+          <EntitySet Name="Useris" EntityType="Self.Useri" />
+          <AssociationSet Name="FK__Projekti__Katego__31EC6D26" Association="Self.FK__Projekti__Katego__31EC6D26">
+            <End Role="Kategoria" EntitySet="Kategorias" />
+            <End Role="Projekti" EntitySet="Projektis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Lajmi__UserID__3E52440B" Association="Self.FK__Lajmi__UserID__3E52440B">
+            <End Role="Useri" EntitySet="Useris" />
+            <End Role="Lajmi" EntitySet="Lajmis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Media__LlojiArki__37A5467C" Association="Self.FK__Media__LlojiArki__37A5467C">
+            <End Role="LlojiArkitektura" EntitySet="LlojiArkitekturas" />
+            <End Role="Media" EntitySet="Media" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Media__MediaType__36B12243" Association="Self.FK__Media__MediaType__36B12243">
+            <End Role="MediaType" EntitySet="MediaTypes" />
+            <End Role="Media" EntitySet="Media" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Media__ProjektiI__35BCFE0A" Association="Self.FK__Media__ProjektiI__35BCFE0A">
+            <End Role="Projekti" EntitySet="Projektis" />
+            <End Role="Media" EntitySet="Media" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Projekti__Lokaci__30F848ED" Association="Self.FK__Projekti__Lokaci__30F848ED">
+            <End Role="Qyteti" EntitySet="Qytetis" />
+            <End Role="Projekti" EntitySet="Projektis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Projekti__UserID__32E0915F" Association="Self.FK__Projekti__UserID__32E0915F">
+            <End Role="Useri" EntitySet="Useris" />
+            <End Role="Projekti" EntitySet="Projektis" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProjektiU__Proje__3A81B327" Association="Self.FK__ProjektiU__Proje__3A81B327">
+            <End Role="Projekti" EntitySet="Projektis" />
+            <End Role="ProjektiUser" EntitySet="ProjektiUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ProjektiU__UserI__3B75D760" Association="Self.FK__ProjektiU__UserI__3B75D760">
+            <End Role="Useri" EntitySet="Useris" />
+            <End Role="ProjektiUser" EntitySet="ProjektiUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Useri__Vendlindj__2D27B809" Association="Self.FK__Useri__Vendlindj__2D27B809">
+            <End Role="Qyteti" EntitySet="Qytetis" />
+            <End Role="Useri" EntitySet="Useris" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Useri__RoliID__2E1BDC42" Association="Self.FK__Useri__RoliID__2E1BDC42">
+            <End Role="Roli" EntitySet="Rolis" />
+            <End Role="Useri" EntitySet="Useris" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DBArchidesArchitetureModelStoreContainer" CdmEntityContainer="DBArchidesArchitetureEntities">
+          <EntitySetMapping Name="ContactUs">
+            <EntityTypeMapping TypeName="DBArchidesArchitetureModel.ContactU">
+              <MappingFragment StoreEntitySet="ContactUs">
+                <ScalarProperty Name="ContactUsID" ColumnName="ContactUsID" />
+                <ScalarProperty Name="Emri" ColumnName="Emri" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Mesazhi" ColumnName="Mesazhi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kategorias">
+            <EntityTypeMapping TypeName="DBArchidesArchitetureModel.Kategoria">
+              <MappingFragment StoreEntitySet="Kategoria">
+                <ScalarProperty Name="KategoriaID" ColumnName="KategoriaID" />
+                <ScalarProperty Name="Kategoria1" ColumnName="Kategoria" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lajmis">
+            <EntityTypeMapping TypeName="DBArchidesArchitetureModel.Lajmi">
+              <MappingFragment StoreEntitySet="Lajmi">
+                <ScalarProperty Name="LajmiID" ColumnName="LajmiID" />
+                <ScalarProperty Name="FotoPath" ColumnName="FotoPath" />
+                <ScalarProperty Name="VideoPath" ColumnName="VideoPath" />
+                <ScalarProperty Name="UploadTime" ColumnName="UploadTime" />
+                <ScalarProperty Name="Titulli" ColumnName="Titulli" />
+                <ScalarProperty Name="Pershkrimi" ColumnName="Pershkrimi" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LlojiArkitekturas">
+            <EntityTypeMapping TypeName="DBArchidesArchitetureModel.LlojiArkitektura">
+              <MappingFragment StoreEntitySet="LlojiArkitektura">
+                <ScalarProperty Name="LlojiArkitekturaID" ColumnName="LlojiArkitekturaID" />
+                <ScalarProperty Name="LlojiArkitektura1" ColumnName="LlojiArkitektura" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Media">
+            <EntityTypeMapping TypeName="DBArchidesArchitetureModel.Medium">
+              <MappingFragment StoreEntitySet="Media">
+                <ScalarProperty Name="MediaID" ColumnName="MediaID" />
+                <ScalarProperty Name="ProjektiID" ColumnName="ProjektiID" />
+                <ScalarProperty Name="MediaTypeID" ColumnName="MediaTypeID" />
+                <ScalarProperty Name="LlojiArkitekturaID" ColumnName="LlojiArkitekturaID" />
+                <ScalarProperty Name="MediaPath" ColumnName="MediaPath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MediaTypes">
+            <EntityTypeMapping TypeName="DBArchidesArchitetureModel.MediaType">
+              <MappingFragment StoreEntitySet="MediaType">
+                <ScalarProperty Name="MediaTypeID" ColumnName="MediaTypeID" />
+                <ScalarProperty Name="MediaType1" ColumnName="MediaType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Projektis">
+            <EntityTypeMapping TypeName="DBArchidesArchitetureModel.Projekti">
+              <MappingFragment StoreEntitySet="Projekti">
+                <ScalarProperty Name="ProjektiID" ColumnName="ProjektiID" />
+                <ScalarProperty Name="Titulli" ColumnName="Titulli" />
+                <ScalarProperty Name="Lokacioni" ColumnName="Lokacioni" />
+                <ScalarProperty Name="Viti" ColumnName="Viti" />
+                <ScalarProperty Name="Madhesia" ColumnName="Madhesia" />
+                <ScalarProperty Name="KategoriaID" ColumnName="KategoriaID" />
+                <ScalarProperty Name="Statusi" ColumnName="Statusi" />
+                <ScalarProperty Name="Pershkrimi" ColumnName="Pershkrimi" />
+                <ScalarProperty Name="UploadTime" ColumnName="UploadTime" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjektiUsers">
+            <EntityTypeMapping TypeName="DBArchidesArchitetureModel.ProjektiUser">
+              <MappingFragment StoreEntitySet="ProjektiUser">
+                <ScalarProperty Name="ProjektiUserID" ColumnName="ProjektiUserID" />
+                <ScalarProperty Name="ProjektiID" ColumnName="ProjektiID" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Qytetis">
+            <EntityTypeMapping TypeName="DBArchidesArchitetureModel.Qyteti">
+              <MappingFragment StoreEntitySet="Qyteti">
+                <ScalarProperty Name="QytetiID" ColumnName="QytetiID" />
+                <ScalarProperty Name="Qyteti1" ColumnName="Qyteti" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rolis">
+            <EntityTypeMapping TypeName="DBArchidesArchitetureModel.Roli">
+              <MappingFragment StoreEntitySet="Roli">
+                <ScalarProperty Name="RoliID" ColumnName="RoliID" />
+                <ScalarProperty Name="Roli1" ColumnName="Roli" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Useris">
+            <EntityTypeMapping TypeName="DBArchidesArchitetureModel.Useri">
+              <MappingFragment StoreEntitySet="Useri">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="Emri" ColumnName="Emri" />
+                <ScalarProperty Name="Mbiemri" ColumnName="Mbiemri" />
+                <ScalarProperty Name="Gjinia" ColumnName="Gjinia" />
+                <ScalarProperty Name="Vendlindja" ColumnName="Vendlindja" />
+                <ScalarProperty Name="Datelindja" ColumnName="Datelindja" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Telefoni" ColumnName="Telefoni" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Pershkrimi" ColumnName="Pershkrimi" />
+                <ScalarProperty Name="Foto" ColumnName="Foto" />
+                <ScalarProperty Name="RoliID" ColumnName="RoliID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

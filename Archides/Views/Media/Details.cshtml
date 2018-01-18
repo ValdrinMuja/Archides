@@ -1,0 +1,54 @@
+﻿@model Archides.Models.Medium
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        
+        <dd>
+            <img src="@Url.Content(Model.MediaPath)" width="400px" height="300px" alt="User Photos" class="rounded-circle img-thumbnailTeam" />
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LlojiArkitektura.LlojiArkitektura1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LlojiArkitektura.LlojiArkitektura1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MediaType.MediaType1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MediaType.MediaType1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Projekti.Titulli)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Projekti.Titulli)
+        </dd>
+        <dt>
+            <p>
+                @Html.ActionLink("Back to List", "Index")
+            </p>
+        </dt>
+        <dt>
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.MediaID }) 
+            </p>
+        </dt>
+        
+    </dl>
+</div>
+
